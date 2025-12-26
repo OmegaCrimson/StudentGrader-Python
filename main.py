@@ -48,7 +48,7 @@ def main():
     student1.listSubjects()
 
     student3.addSubject(physicalEducation)
-    student3.listSubjectsDetails
+    student3.listSubjectsDetails()
 
     # Remove a subject by index
     print("\n--- Removing Subject ---")
@@ -69,3 +69,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
