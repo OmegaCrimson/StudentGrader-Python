@@ -17,5 +17,5 @@ Built with clean OOP design (`Student` and `Subject` classes), validation, and f
 ## 📦 Installation
 Clone the repository:
 ```bash
-git clone https://OmegaCrimson/StudentGrader-Python-cli.git
-cd StudentGrader-Python-cli
+git clone https://OmegaCrimson/StudentGrader-Python.git
+cd StudentGrader-Python
