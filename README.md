@@ -1,27 +1,41 @@
+# 🎓 Student Grader (Python CLI) — Console App  
+# برنامج تقييم الطلاب (Python CLI) — تطبيق كونسول  
+
 [![Python Auto Release](https://github.com/OmegaCrimson/StudentGrader-Python/actions/workflows/release.yml/badge.svg)](https://github.com/OmegaCrimson/StudentGrader-Python/actions/workflows/release.yml)  
 ![GitHub release](https://img.shields.io/github/v/release/OmegaCrimson/StudentGrader-Python)  
 ![License](https://img.shields.io/github/license/OmegaCrimson/StudentGrader-Python)  
 ![Python Version](https://img.shields.io/badge/python-3.11-blue)  
-![Downloads](https://img.shields.io/github/downloads/OmegaCrimson/StudentGrader-Python/total)
-
-# Student Grader CLI
-
-A simple Python CLI application to manage students and their subjects, calculate averages, and print report cards.  
-Built with clean OOP design (`Student` and `Subject` classes), validation, and formatted output.
+![Downloads](https://img.shields.io/github/downloads/OmegaCrimson/StudentGrader-Python/total)  
 
 ---
 
-## ✨ Features
-- Add and remove subjects dynamically
-- Validate input (names, grades, age)
-- Calculate average grade percentage
-- Print formatted student and subject info
-- Built-in docstrings for easy documentation
+**Author / المؤلف:** Mohamed Gonem / محمد غنيم  
+**Version / الإصدار:** 1.0.2  
+**License / الرخصة:** MIT License  
+**Language Support / دعم اللغة:** English + Arabic digits  
+
+A modular, console-based student grading system built in Python.  
+Supports multi-subject entry, GPA calculation, persistent storage, and clean CLI navigation.
+
+نظام تقييم طلاب مبني بلغة Python يعمل عبر الكونسول.  
+يدعم إدخال درجات متعددة، حساب المعدل التراكمي، وحفظ البيانات عبر واجهة بسيطة.
 
 ---
 
-## 📦 Installation
-Clone the repository:
-```bash
-git clone https://github.com/OmegaCrimson/StudentGrader-Python.git
-cd StudentGrader-Python
+## ✨ Features / الميزات
+- ✅ Add, view, and delete student records / إضافة وعرض وحذف بيانات الطلاب  
+- ✅ Multi-subject support per student / دعم عدة مواد لكل طالب  
+- ✅ GPA and percentage calculation / حساب المعدل التراكمي والنسبة المئوية  
+- ✅ Input validation with Arabic/English digit support / التحقق من صحة الإدخال ودعم الأرقام العربية والإنجليزية  
+- ✅ Persistent storage in AppData / حفظ البيانات تلقائيًا في مجلد AppData  
+- ✅ Clean CLI UI with modular services / واجهة كونسول منظمة باستخدام خدمات منفصلة  
+- ✅ Logs actions and errors / تسجيل الأحداث والأخطاء  
+- ✅ Modular architecture for maintainability / هيكلية مرنة وسهلة التوسعة  
+
+---
+
+## 🚀 Run Locally / التشغيل محليًا
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/OmegaCrimson/StudentGrader-Python.git
+   cd StudentGrader-Python
