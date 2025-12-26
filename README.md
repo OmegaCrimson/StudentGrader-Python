@@ -1,11 +1,19 @@
 # 🎓 Student Grader (Python CLI) — Console App  
 # برنامج تقييم الطلاب (Python CLI) — تطبيق كونسول  
 
-[![Python Auto Release](https://github.com/OmegaCrimson/StudentGrader-Python/actions/workflows/release.yml/badge.svg)](https://github.com/OmegaCrimson/StudentGrader-Python/actions/workflows/release.yml)  
-![GitHub release](https://img.shields.io/github/v/release/OmegaCrimson/StudentGrader-Python)  
-![License](https://img.shields.io/github/license/OmegaCrimson/StudentGrader-Python)  
-![Python Version](https://img.shields.io/badge/python-3.11-blue)  
-![Downloads](https://img.shields.io/github/downloads/OmegaCrimson/StudentGrader-Python/total)  
+## 📦 StudentGrader-Python Status
+
+[![Python Auto Release](https://github.com/OmegaCrimson/StudentGrader-Python/actions/workflows/release.yml/badge.svg)](https://github.com/OmegaCrimson/StudentGrader-Python/actions/workflows/release.yml)
+![GitHub release](https://img.shields.io/github/v/release/OmegaCrimson/StudentGrader-Python)
+![License](https://img.shields.io/github/license/OmegaCrimson/StudentGrader-Python)
+![Python Version](https://img.shields.io/badge/python-3.11-blue)
+![Downloads](https://img.shields.io/github/downloads/OmegaCrimson/StudentGrader-Python/total)
+
+![GitHub stars](https://img.shields.io/github/stars/OmegaCrimson/StudentGrader-Python?style=social)
+![GitHub forks](https://img.shields.io/github/forks/OmegaCrimson/StudentGrader-Python?style=social)
+![GitHub issues](https://img.shields.io/github/issues/OmegaCrimson/StudentGrader-Python)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/OmegaCrimson/StudentGrader-Python)
+![GitHub last commit](https://img.shields.io/github/last-commit/OmegaCrimson/StudentGrader-Python)
 
 ---
 
