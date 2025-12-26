@@ -66,7 +66,10 @@ def main():
     print("\n===========\n")
     print("\n=== Doc Strings End===\n")
 
+    choice = input("Press Enter to continue: ")
+
 
 if __name__ == "__main__":
     main()
+
 
