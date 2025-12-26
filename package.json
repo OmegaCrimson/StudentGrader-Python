@@ -4,7 +4,7 @@
   "description": "A Python CLI app to manage students and subjects",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/student-grader-cli.git"
+    "url": "https://github.com/OmegaCrimson/StudentGrader-Python.git"
   },
   "license": "MIT"
 }
