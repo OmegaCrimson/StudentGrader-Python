@@ -1,8 +1,9 @@
 name: Python Auto Release
 
-on:
-  release:
-    types: [created] 
+on: 
+  push: 
+    tags: 
+      - "v*.*.*"
 
 permissions:
   contents: write
