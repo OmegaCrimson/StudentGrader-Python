@@ -31,23 +31,24 @@ jobs:
         pip install pyinstaller
 
     - name: Clean previous outputs
-      run: rm -rf dist/ build/ __pycache__ *.spec StudentGrader.zip
+      run: |
+        Remove-Item -Recurse -Force dist, build, *.spec, StudentGrader.zip -ErrorAction SilentlyContinue
 
     - name: Build executable
       run: pyinstaller --onefile main.py
 
     - name: Verify build output
       run: |
-        if [ ! -f "dist/main.exe" ]; then
-          echo "Build failed: dist/main.exe not found."
+        if (!(Test-Path "dist/main.exe")) {
+          Write-Host "Build failed: dist/main.exe not found."
           exit 1
-        fi
-        echo "Build succeeded: dist/main.exe found."
+        }
+        Write-Host "Build succeeded: dist/main.exe found."
 
     - name: Zip build
       run: |
-        zip -r StudentGrader.zip dist/
-        echo "Zipped build: StudentGrader.zip"
+        Compress-Archive -Path dist\* -DestinationPath StudentGrader.zip
+        Write-Host "Zipped build: StudentGrader.zip"
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
@@ -56,39 +57,40 @@ jobs:
         path: dist/
 
     - name: Install GitHub CLI
-      run: sudo apt-get install gh
+      run: |
+        Invoke-WebRequest -Uri https://github.com/cli/cli/releases/download/v2.45.0/gh_2.45.0_windows_amd64.msi -OutFile gh.msi
+        Start-Process msiexec.exe -Wait -ArgumentList '/i gh.msi /quiet'
+        Remove-Item gh.msi
 
     - name: Create GitHub Release
       if: ${{ github.event.inputs.dry_run != 'true' }}
       run: |
-        echo "Detecting latest Git tag..."
-        TAG=$(git describe --tags --abbrev=0 || echo "")
-        echo "Latest tag: $TAG"
-
-        if [ -z "$TAG" ]; then
-          echo "No tag found. Skipping release."
+        Write-Host "Detecting latest Git tag..."
+        $TAG = git describe --tags --abbrev=0
+        if (-not $TAG) {
+          Write-Host "No tag found. Skipping release."
           exit 0
-        fi
+        }
 
-        NOTES_FILE="CHANGELOG.md"
-        if [ ! -f "$NOTES_FILE" ]; then
-          echo "CHANGELOG.md not found. Creating placeholder."
-          echo "Initial release." > "$NOTES_FILE"
-        fi
+        $NOTES_FILE = "CHANGELOG.md"
+        if (-not (Test-Path $NOTES_FILE)) {
+          Write-Host "CHANGELOG.md not found. Creating placeholder."
+          "Initial release." | Out-File $NOTES_FILE
+        }
 
-        echo "Creating release for tag: $TAG"
-        echo "Repository: $GITHUB_REPOSITORY"
-        echo "Artifacts: dist/main.exe, StudentGrader.zip"
+        Write-Host "Creating release for tag: $TAG"
+        Write-Host "Repository: $env:GITHUB_REPOSITORY"
+        Write-Host "Artifacts: dist/main.exe, StudentGrader.zip"
 
-        if [ ! -f "dist/main.exe" ] || [ ! -f "StudentGrader.zip" ]; then
-          echo "Missing release files. Aborting upload."
+        if (!(Test-Path "dist/main.exe") -or !(Test-Path "StudentGrader.zip")) {
+          Write-Host "Missing release files. Aborting upload."
           exit 1
-        fi
+        }
 
-        gh release create "$TAG" dist/main.exe StudentGrader.zip \
-          --repo "$GITHUB_REPOSITORY" \
-          --title "Student Grader $TAG" \
-          --notes-file "$NOTES_FILE" \
+        gh release create $TAG dist/main.exe StudentGrader.zip `
+          --repo "$env:GITHUB_REPOSITORY" `
+          --title "Student Grader $TAG" `
+          --notes-file $NOTES_FILE `
           --target main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
